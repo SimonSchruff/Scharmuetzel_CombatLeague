@@ -1,0 +1,22 @@
+{
+    "name": "Scripts.GameLogic",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3b8ed52f1b5c64994af4c4e0aa4b6c4b",
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:9f4f5bf029cebb64f983b7bdc29f62a1",
+        "GUID:be1e1eaa3602b4f1db46a9436895a467",
+        "GUID:5cddc187f631c4b5cb68318d9faa25ae",
+        "GUID:04afbd37e956340f6a170b2c7a94b2a3",
+        "GUID:42d45f26d43d646f7871c05b8e246e67"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
