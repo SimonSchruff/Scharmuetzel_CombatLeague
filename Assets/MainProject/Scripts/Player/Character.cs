@@ -142,6 +142,7 @@ namespace MainProject.Scripts.Player
             
             LinkedHealth.OnDeath += OnDeath;
             LinkedHealth.OnRespawn += OnRespawn;
+            LinkedHealth.OnDamageTaken += OnHit;
             
             NetworkManager.NetworkTickSystem.Tick += TickPlayer;
             
@@ -1131,8 +1132,11 @@ namespace MainProject.Scripts.Player
         protected virtual void OnDeath(float respawnTime)
         {
             Disable();
-            
             LinkedFXHandler.PlaySpawnFX(Net_TeamID.Value);
+            
+            if (IsLocalPlayer) {
+                LinkedInputHandler.RumbleController(2f, 0.75f);
+            }
         }
         
         protected virtual void OnRespawn()
@@ -1144,12 +1148,16 @@ namespace MainProject.Scripts.Player
             
             if (IsLocalPlayer) {
                 LinkedInputHandler.enabled = true;
+                LinkedInputHandler.RumbleController(0.4f, 0.5f);
+
             }
         }
         
-        protected virtual void OnHit()
+        protected virtual void OnHit(float health)
         {
-
+            if (IsLocalPlayer) {
+                LinkedInputHandler.RumbleController(0.5f, 0.75f);
+            }
         }
     }
 }

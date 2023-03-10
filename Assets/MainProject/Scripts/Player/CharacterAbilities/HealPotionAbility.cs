@@ -147,7 +147,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
             Cooldown.UpdateCooldown(IsLocalPlayer);
         }
 
-        private void OnDamageReceived(DamageType damage)
+        private void OnDamageReceived(float newHealth)
         {
             InterruptAbility();
         }

@@ -209,7 +209,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
             CastStop();
         }
         
-        private void OnDamageReceived(DamageType damage)
+        private void OnDamageReceived(float health)
         {
             InterruptAbility();
         }

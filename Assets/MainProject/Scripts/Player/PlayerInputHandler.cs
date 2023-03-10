@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Specialized;
 using MainProject.Scripts.DataStructures.PlayerData;
 using MainProject.Scripts.Player.PlayerUI;
+using MainProject.Scripts.Tools;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -171,6 +171,18 @@ namespace MainProject.Scripts.Player
                     button = KeyState.off;
                     break;
             }
+        }
+
+        public void RumbleController(float time, float amount)
+        {
+            StartCoroutine(RumbleControllerOverTime(time, amount)); 
+        }
+        
+        private IEnumerator RumbleControllerOverTime(float time, float amount)
+        {
+            InputHelpers.SetControllerVibration(amount, amount);
+            yield return new WaitForSeconds(time);
+            InputHelpers.ResetCurrentHaptics();
         }
 
         private void SubscribeToInputEvents()

@@ -30,7 +30,7 @@ namespace MainProject.Scripts.Player
 
         // EVENTS
         // On hit/take dmg event
-        public event Action<DamageType> OnDamageTaken;
+        public event Action<float> OnDamageTaken;
         public event Action<float> OnDeath;
         public event Action OnRespawn;
         
@@ -166,9 +166,11 @@ namespace MainProject.Scripts.Player
                 return;
             }
 
+            var newHealth = Net_CurrentHealth.Value - damage.DamageCaused;
+            
             // Apply damage to health
             if (damage.DamageCaused > 0) {
-                SetHealth(Net_CurrentHealth.Value - damage.DamageCaused);
+                SetHealth(newHealth);
             }
             
             // Kill character if dmg is equal or smaller 0
@@ -183,7 +185,7 @@ namespace MainProject.Scripts.Player
             }
 
             // Trigger damage taken event
-            OnDamageTaken?.Invoke(damage);
+            OnDamageTaken?.Invoke(newHealth);
 
             // Animation
             /*
@@ -197,6 +199,16 @@ namespace MainProject.Scripts.Player
 
             // Apply damage movement multiplier, if there is any
             ProcessMovementMultiplierChange(damage);
+            
+            OnDamageTakenClientRpc(newHealth);
+        }
+
+        [ClientRpc]
+        private void OnDamageTakenClientRpc(float newHealth)
+        {
+            if (IsServer) { return; }
+            
+            OnDamageTaken?.Invoke(newHealth);
         }
 
         private void ProcessDamageConditionStateChange(DamageType dmg)

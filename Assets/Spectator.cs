@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MainProject.Scripts.DataStructures.PlayerData;
 using MainProject.Scripts.Player;
+using MainProject.Scripts.Player.Spectator;
 using UnityEngine;
 
 public class Spectator : MonoBehaviour

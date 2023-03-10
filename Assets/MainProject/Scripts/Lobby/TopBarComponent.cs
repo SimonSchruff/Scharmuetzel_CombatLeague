@@ -1,14 +1,16 @@
-
 using MainProject.Scripts.DataStructures;
 using TMPro;
 using UnityEngine;
 
-public class TopBarComponent : MonoBehaviour
+namespace MainProject.Scripts.Lobby
 {
-    [SerializeField] private TextMeshProUGUI _playerNameText;
-
-    private void Start()
+    public class TopBarComponent : MonoBehaviour
     {
-        _playerNameText.text = Constants.PlayerName;
+        [SerializeField] private TextMeshProUGUI _playerNameText;
+
+        private void Start()
+        {
+            _playerNameText.text = Constants.PlayerName;
+        }
     }
 }

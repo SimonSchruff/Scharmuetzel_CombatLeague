@@ -1,47 +1,48 @@
-
+using MainProject.Scripts.Tools.Services;
 using TMPro;
 using UnityEngine;
-using MainProject.Scripts.Tools.Services;
 
-
-public class BotBarComponent : MonoBehaviour
+namespace MainProject.Scripts.Lobby
 {
-    [Header("Text Ref")]
-    [SerializeField] private TextMeshProUGUI _onlineText;
-    [SerializeField] private TextMeshProUGUI _timeText;
-
-    [Header("Color Ref")]
-    [SerializeField] private Color _onlineTextColor;
-    [SerializeField] private Color _offlineTextColor;
-
-
-    private void Start()
+    public class BotBarComponent : MonoBehaviour
     {
-        if (!_onlineText) {
-            return;
-        }
+        [Header("Text Ref")]
+        [SerializeField] private TextMeshProUGUI _onlineText;
+        [SerializeField] private TextMeshProUGUI _timeText;
+
+        [Header("Color Ref")]
+        [SerializeField] private Color _onlineTextColor;
+        [SerializeField] private Color _offlineTextColor;
+
+
+        private void Start()
+        {
+            if (!_onlineText) {
+                return;
+            }
         
-        // Set online text
-        if (Authentication.IsLoggedIn())
-        {
-            _onlineText.text = "Online";
-            _onlineText.color = _onlineTextColor;
+            // Set online text
+            if (Authentication.IsLoggedIn())
+            {
+                _onlineText.text = "Online";
+                _onlineText.color = _onlineTextColor;
+
+            }
+            else
+            {
+                _onlineText.text = "Offline";
+                _onlineText.color = _offlineTextColor;
+
+            }
 
         }
-        else
+
+
+        void Update()
         {
-            _onlineText.text = "Offline";
-            _onlineText.color = _offlineTextColor;
-
-        }
-
-    }
-
-
-    void Update()
-    {
-        if (_timeText) {
-             _timeText.text = System.DateTime.Now.ToString("HH:mm");
+            if (_timeText) {
+                _timeText.text = System.DateTime.Now.ToString("HH:mm");
+            }
         }
     }
 }

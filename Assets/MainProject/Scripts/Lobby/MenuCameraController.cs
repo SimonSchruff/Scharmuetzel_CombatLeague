@@ -1,46 +1,48 @@
-
 using Cinemachine;
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
-public class MenuCameraController : MonoBehaviour
+namespace MainProject.Scripts.Lobby
 {
-    public static MenuCameraController Instance;
-
-    [SerializeField] private CinemachineVirtualCamera _startCam;
-    [SerializeField] private CinemachineVirtualCamera _lobbyCam;
-
-    private void Awake()
+    public class MenuCameraController : MonoBehaviour
     {
-        if (Instance == null) { Instance = this; }
-        else { Destroy(this); }
+        public static MenuCameraController Instance;
+
+        [SerializeField] private CinemachineVirtualCamera _startCam;
+        [SerializeField] private CinemachineVirtualCamera _lobbyCam;
+
+        private void Awake()
+        {
+            if (Instance == null) { Instance = this; }
+            else { Destroy(this); }
         
-    }
+        }
 
-    private void Start()
-    {
-        SwitchToStartCam();
-    }
+        private void Start()
+        {
+            SwitchToStartCam();
+        }
 
-    public void RotateCameraYToDegree(float angleY)
-    {
-        var currentRotation = transform.rotation.eulerAngles;
-        transform.DORotate(new Vector3(currentRotation.x, angleY, currentRotation.z), 2.5f, RotateMode.Fast);
-    }
+        public void RotateCameraYToDegree(float angleY)
+        {
+            var currentRotation = transform.rotation.eulerAngles;
+            transform.DORotate(new Vector3(currentRotation.x, angleY, currentRotation.z), 2.5f, RotateMode.Fast);
+        }
 
-    public void SwitchToStartCam()
-    {
-        if(_startCam == null || _lobbyCam == null) return;
+        public void SwitchToStartCam()
+        {
+            if(_startCam == null || _lobbyCam == null) return;
         
-        _startCam.gameObject.SetActive(true);
-        _lobbyCam.gameObject.SetActive(false);
-    }
+            _startCam.gameObject.SetActive(true);
+            _lobbyCam.gameObject.SetActive(false);
+        }
     
-    public void SwitchToLobbyCam()
-    {
-        if(_startCam == null || _lobbyCam == null) return;
+        public void SwitchToLobbyCam()
+        {
+            if(_startCam == null || _lobbyCam == null) return;
 
-        _startCam.gameObject.SetActive(false);
-        _lobbyCam.gameObject.SetActive(true);
+            _startCam.gameObject.SetActive(false);
+            _lobbyCam.gameObject.SetActive(true);
+        }
     }
 }
