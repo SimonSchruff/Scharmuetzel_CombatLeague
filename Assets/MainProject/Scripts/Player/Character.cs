@@ -1136,6 +1136,8 @@ namespace MainProject.Scripts.Player
         {
             Disable();
             LinkedFXHandler.PlaySpawnFX(Net_TeamID.Value);
+            LinkedSoundFXHandler.Play("Death");
+            LinkedSoundFXHandler.Play("Spawn");
             
             if (IsLocalPlayer) {
                 LinkedInputHandler.RumbleController(2f, 0.75f);
@@ -1158,6 +1160,8 @@ namespace MainProject.Scripts.Player
         
         protected virtual void OnHit(float health)
         {
+            LinkedSoundFXHandler.Play("Hit");
+            
             if (IsLocalPlayer) {
                 LinkedInputHandler.RumbleController(0.5f, 0.75f);
             }

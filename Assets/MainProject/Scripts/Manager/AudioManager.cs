@@ -1,6 +1,8 @@
 using System;
 using MainProject.Scripts.DataStructures;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 namespace MainProject.Scripts.Manager
 {
@@ -8,8 +10,10 @@ namespace MainProject.Scripts.Manager
     {
         public static AudioManager Instance;
     
-        public SoundClip[] SoundClips;
-    
+        public SoundClip[] BackgroundMusicSoundClips;
+        
+        [Header("BackgroundMusic")]
+        public AudioMixerGroup BackgroundMusicMixerGroup;
 
         private bool _isInitalized = false;
         private void Awake()
@@ -17,7 +21,7 @@ namespace MainProject.Scripts.Manager
             if (Instance == null) { Instance = this; } 
             else { Destroy(this); }
 
-            foreach (var s in SoundClips)
+            foreach (var s in BackgroundMusicSoundClips)
             {
                 s.Source = gameObject.AddComponent<AudioSource>();
                 s.Source.clip = s.Clip;
@@ -25,7 +29,8 @@ namespace MainProject.Scripts.Manager
                 s.Source.volume = s.Volume;
                 s.Source.pitch = s.Pitch;
             
-                s.Source.loop = s.Loop; 
+                s.Source.loop = s.Loop;
+                s.Source.outputAudioMixerGroup = BackgroundMusicMixerGroup;
             }
         
             _isInitalized = true;
@@ -35,13 +40,15 @@ namespace MainProject.Scripts.Manager
         {
             Play("BackgroundMusic");
         }
+        
+        
 
 
         public void Play(string soundClipName)
         {
             if (!_isInitalized) { return; }
         
-            SoundClip soundClip = Array.Find(SoundClips, s => s.Name == soundClipName);
+            SoundClip soundClip = Array.Find(BackgroundMusicSoundClips, s => s.Name == soundClipName);
             if (soundClip == null) {
                 Debug.LogWarning($"Could not find {soundClipName}!");
                 return;

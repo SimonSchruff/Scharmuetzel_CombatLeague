@@ -147,7 +147,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         [ClientRpc]
         private void NotifyAbilityStartedClientRPC()
         {
-            StartCoroutine(PlaySoundAfterTime("BasicRanged", TimeToSpawnProjectile));
+            StartCoroutine(PlaySoundAfterTime("BasicRanged", TimeToSpawnProjectile - 0.1f));
             
             if (IsLocalPlayer)
             {

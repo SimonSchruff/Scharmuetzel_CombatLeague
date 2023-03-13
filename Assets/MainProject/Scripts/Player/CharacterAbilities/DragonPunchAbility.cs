@@ -133,7 +133,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         {
             EnableHitAreaPreview();
 
-            StartCoroutine(PlaySoundAfterTime("DragonPunch", _timeToCast));
+            StartCoroutine(PlaySoundAfterTime("DragonPunch", _timeToCast - 0.1f));
             
             if (IsLocalPlayer) {
                 _abilityHandler.StartCooldown(AbilityTypes.DragonPunch);

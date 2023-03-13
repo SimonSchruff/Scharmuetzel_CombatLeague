@@ -148,6 +148,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         private void NotifyAbilityCastClientRPC()
         {
             _fxHandler.PlayGroundSpikeFX();
+            _soundFXHandler.Play("GroundSpikeAttack");
             DisableHitAreaPreview();
         }
         

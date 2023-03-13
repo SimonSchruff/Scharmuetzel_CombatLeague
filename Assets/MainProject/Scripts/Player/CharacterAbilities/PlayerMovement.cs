@@ -100,16 +100,32 @@ namespace MainProject.Scripts.Player.CharacterAbilities
             base.ProcessAbility();
 
             if (!IsServer && !IsLocalPlayer) {
+                PlaySFXOnRemoteClient();
                 return;
             }
             
             if (!AbilityAuthorized) {
+                _soundFXHandler.DisableFootstepSfx();
+                UpdateAnimator();
                 return;
             }
             
             HandleFrozen();
             HandleMovement();
             RotateToFaceMovementDirection();
+        }
+
+        private void PlaySFXOnRemoteClient()
+        {
+            // TODO: Get current speed on remote client
+            /*
+            if (_controller.Speed.sqrMagnitude > IdleThreshold) {
+                _soundFXHandler.EnableFootstepSfx();
+            }
+            else {
+                _soundFXHandler.DisableFootstepSfx();
+            }
+            */
         }
         
         #region MOVEMENT
@@ -122,30 +138,32 @@ namespace MainProject.Scripts.Player.CharacterAbilities
 			// if movement is prevented, or if the character is dead/frozen/can't move, we exit and do nothing
 			if ( !AbilityAuthorized || (_conditionsStateMachine.CurrentState != CharacterStates.CharacterConditions.Normal) )
 			{
-				return;				
+                _soundFXHandler.DisableFootstepSfx();
+                UpdateAnimator();
+
+                return;				
 			}
 			
 			if (MovementForbidden)
 			{
-				_horizontalMovement = 0f;
+                _soundFXHandler.DisableFootstepSfx();
+
+                _horizontalMovement = 0f;
 				_verticalMovement = 0f;
-			}
+            }
 
             if ((_controller.CurrentMovement.magnitude > IdleThreshold) && ( _movementStateMachine.CurrentState == CharacterStates.CharacterMovementStates.Idle))
 			{				
 				_movementStateMachine.ChangeState(CharacterStates.CharacterMovementStates.Running);	
-				//PlayAbilityStartSfx();	
-				//PlayAbilityUsedSfx();
-				//PlayAbilityStartFeedbacks();
-			}
+                _soundFXHandler.EnableFootstepSfx();
+            }
             
 			// if we're running and not moving anymore, we go back to the Idle state
 			if ((_controller.CurrentMovement.magnitude <= IdleThreshold) && (_movementStateMachine.CurrentState == CharacterStates.CharacterMovementStates.Running ||_movementStateMachine.CurrentState == CharacterStates.CharacterMovementStates.None))
 			{
 				_movementStateMachine.ChangeState(CharacterStates.CharacterMovementStates.Idle);
-				// PlayAbilityStopSfx();
-				// PlayAbilityStopFeedbacks();
-			}
+                _soundFXHandler.DisableFootstepSfx();
+            }
             
 			SetMovement();
         }
@@ -211,6 +229,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
             }
             
             _controller.SetMovement(_movementVector, Time.fixedDeltaTime);
+            UpdateAnimator();
         }
         #endregion
         
@@ -312,9 +331,9 @@ namespace MainProject.Scripts.Player.CharacterAbilities
             }
             
             // Only update animator when its necessary to save bandwidth
-            if (_controller.CurrentMovement.sqrMagnitude > 0)
+            if (_movementVector.sqrMagnitude > 0)
             {
-                _animator.SetFloat(_speedAnimationParameter,Mathf.Abs(_controller.Speed.magnitude));
+                _animator.SetFloat(_speedAnimationParameter,Mathf.Abs(_movementVector.magnitude));
             }
         }
         #endregion

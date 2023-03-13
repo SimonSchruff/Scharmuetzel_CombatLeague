@@ -49,7 +49,7 @@ MonoBehaviour:
   - Name: BackgroundMusic
     Clip: {fileID: 8300000, guid: 65f6d4b588b00465a832ba83af849870, type: 3}
     Loop: 1
-    Volume: 0.1
+    Volume: 0.05
     Pitch: 1
     Source: {fileID: 0}
   - Name: 
@@ -58,6 +58,8 @@ MonoBehaviour:
     Volume: 0
     Pitch: 0
     Source: {fileID: 0}
+  BackgroundMusicMixerGroup: {fileID: 9201922722628935477, guid: 6672fab9250a3412b9df966060d92aec,
+    type: 2}
 --- !u!114 &3585082082105504555
 MonoBehaviour:
   m_ObjectHideFlags: 0

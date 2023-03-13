@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 8851425572841765719}
   - component: {fileID: 5226659805585394832}
   - component: {fileID: 7622724054143813043}
+  - component: {fileID: 1283503024685443356}
   m_Layer: 9
   m_Name: Player_Character
   m_TagString: Player
@@ -496,35 +497,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundClips:
   - Name: Spawn
-    Clip: {fileID: 8300000, guid: d06fe0a28626b49adab84566e385e55c, type: 3}
+    Clip: {fileID: 8300000, guid: b39b6de808b274cdea2697581bb20b25, type: 3}
     Loop: 0
-    Volume: 0.4
+    Volume: 0.2
     Pitch: 1
     Source: {fileID: 0}
   - Name: BasicAttack
     Clip: {fileID: 8300000, guid: 52d78d0a5d6ab4c7bb5eb1959222ed19, type: 3}
     Loop: 0
-    Volume: 0.3
-    Pitch: 1
-    Source: {fileID: 0}
-  - Name: DragonPunch
-    Clip: {fileID: 8300000, guid: 4d1cf98b68e6441ba8b1237834500f7a, type: 3}
-    Loop: 0
-    Volume: 0.3
+    Volume: 0.4
     Pitch: 1
     Source: {fileID: 0}
   - Name: BasicRanged
     Clip: {fileID: 8300000, guid: 13e9147b3232a489ba2278dc0f732712, type: 3}
     Loop: 0
-    Volume: 0.3
+    Volume: 0.25
     Pitch: 1
     Source: {fileID: 0}
   - Name: SpinAttack
     Clip: {fileID: 8300000, guid: d9df5b8eb78f94952a9c5758f1ce275c, type: 3}
     Loop: 0
+    Volume: 0.2
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: GroundSpikeAttack
+    Clip: {fileID: 8300000, guid: d06fe0a28626b49adab84566e385e55c, type: 3}
+    Loop: 0
+    Volume: 0.2
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: DragonPunch
+    Clip: {fileID: 8300000, guid: 4d1cf98b68e6441ba8b1237834500f7a, type: 3}
+    Loop: 0
+    Volume: 0.2
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: Hit
+    Clip: {fileID: 8300000, guid: 4847a2575cbdf4d549b56f26edabc25d, type: 3}
+    Loop: 0
+    Volume: 0.2
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: Death
+    Clip: {fileID: 8300000, guid: a8f9183e7dceb4808866f1d1f78d8fe6, type: 3}
+    Loop: 0
+    Volume: 0.2
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: Dash
+    Clip: {fileID: 8300000, guid: b0ece92cad9c44523ad36b0ecd129288, type: 3}
+    Loop: 0
     Volume: 0.3
     Pitch: 1
     Source: {fileID: 0}
+  AbilitiesMixerGroup: {fileID: -2703975084530801462, guid: 6672fab9250a3412b9df966060d92aec,
+    type: 2}
+  _minDist: 0.5
+  _maxDist: 10
+  _rolloffMode: 1
+  FootstepSoundClips:
+  - Name: 1
+    Clip: {fileID: 8300000, guid: 9fd1c5b8ccdcb41ba8536d36ab2f144a, type: 3}
+    Loop: 0
+    Volume: 0.3
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: 2
+    Clip: {fileID: 8300000, guid: f98e706bc64cd44e198a76843f13d624, type: 3}
+    Loop: 0
+    Volume: 0.3
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: 3
+    Clip: {fileID: 8300000, guid: cd49b2aa455d8422080d534892d64337, type: 3}
+    Loop: 0
+    Volume: 0.3
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: 4
+    Clip: {fileID: 8300000, guid: 27ea32774b8544765bd3b81e3eb8a920, type: 3}
+    Loop: 0
+    Volume: 0.3
+    Pitch: 1
+    Source: {fileID: 0}
+  FootstepsMixerGroup: {fileID: 9170800190288530995, guid: 6672fab9250a3412b9df966060d92aec,
+    type: 2}
+  _footstepSoundInterval: 0.4
 --- !u!114 &6863906374323071287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +920,102 @@ MonoBehaviour:
   _timeToEnableLightFX: 0.5
   _durationLightFX: 2.3
   _totalAbilityTime: 3.2
+--- !u!82 &1283503024685443356
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420157620333517333}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &458745618750221897
 GameObject:
   m_ObjectHideFlags: 0

@@ -136,6 +136,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
             }
             
             _fxHandler.StartPlayTrailFX(DashDuration, _character.Net_TeamID.Value);
+            _soundFXHandler.Play("Dash");
         }
 
         protected override void InitializeAnimatorParameters()
