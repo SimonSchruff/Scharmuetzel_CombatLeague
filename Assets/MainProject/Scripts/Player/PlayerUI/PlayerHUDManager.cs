@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using MainProject.Scripts.DataStructures;
 using MainProject.Scripts.DataStructures.PlayerData;
 using MainProject.Scripts.Manager;
-using MainProject.Scripts.Player.CharacterAbilities;
-using MainProject.Scripts.Tools;
 using MainProject.Scripts.Tools.NetworkAnalysisTools;
 using MainProject.Scripts.Tools.Services;
-using Unity.Multiplayer.Tools.NetStatsMonitor;
-using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace MainProject.Scripts.Player.PlayerUI
 {
@@ -25,7 +19,6 @@ namespace MainProject.Scripts.Player.PlayerUI
 
         private NetStatsMonitorCustomization _netStatsMonitorHandler;
         private Character _localPlayerCharacter;
-        private TopDownController _controller;
         private Health _health;
         
         private Dictionary<Character, HealthBar> _healthBarDictionary = new Dictionary<Character, HealthBar>();
@@ -138,7 +131,6 @@ namespace MainProject.Scripts.Player.PlayerUI
             }
 
             // Components
-            _controller = _localPlayerCharacter.LinkedPlayerController;
             _health = _localPlayerCharacter.LinkedHealth;
             _netStatsMonitorHandler = FindObjectOfType<NetStatsMonitorCustomization>();
             

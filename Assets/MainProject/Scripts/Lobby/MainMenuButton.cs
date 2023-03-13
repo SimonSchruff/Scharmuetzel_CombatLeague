@@ -20,12 +20,14 @@ namespace MainProject.Scripts.Lobby
     
         private Button _button;
         private TextMeshProUGUI _buttonText;
+        private AudioSource _source;
 
 
         private void Awake()
         {
             _button = GetComponent<Button>();
             _buttonText = GetComponentInChildren<TextMeshProUGUI>();
+            _source = GetComponent<AudioSource>();
 
             _buttonText.font = _font;
             _buttonText.fontSize = _textSize;
@@ -38,6 +40,7 @@ namespace MainProject.Scripts.Lobby
             _buttonText.font = _fontHighlight;
             _buttonText.color = _colorHighlight;
             _buttonText.fontSize = _textSizeHighlight;
+            _source.Play();
         }
 
         private void ResetHighlightButton()

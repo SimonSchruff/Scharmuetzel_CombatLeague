@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 1937370169202087263}
   - component: {fileID: 7141312759782375230}
   - component: {fileID: 6120487867756941138}
+  - component: {fileID: 1498755039990496160}
   - component: {fileID: 6863906374323071287}
   - component: {fileID: 4873918831590562304}
   - component: {fileID: 1940727575938701798}
@@ -372,6 +373,7 @@ MonoBehaviour:
   LinkedAbilityHandler: {fileID: 0}
   LinkedCameraHandler: {fileID: 0}
   LinkedFXHandler: {fileID: 0}
+  LinkedSoundFXHandler: {fileID: 0}
   CharacterAnimator: {fileID: -8690573815469932312}
   CharacterNetAnimator: {fileID: 6496389481918898888}
   IsServerDisplayPlayerEnabled: 0
@@ -480,6 +482,18 @@ MonoBehaviour:
     type: 2}
   _hitFlashMaterialTeam02: {fileID: 2100000, guid: 6e8ee0d50e25f4b6286a811f8f588eeb,
     type: 2}
+--- !u!114 &1498755039990496160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420157620333517333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e940707400c044b35b29e277b99b5040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6863906374323071287
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using MainProject.Scripts.DataStructures;
 using MainProject.Scripts.DataStructures.PlayerData;
@@ -9,7 +8,6 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Task = System.Threading.Tasks.Task;
 
 namespace MainProject.Scripts.Player.PlayerUI

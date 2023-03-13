@@ -46,6 +46,7 @@ namespace MainProject.Scripts.Player
         public PlayerAbilityHandler LinkedAbilityHandler;
         public PlayerCameraHandler LinkedCameraHandler;
         public PlayerFXHandler LinkedFXHandler;
+        public PlayerSoundFXHandler LinkedSoundFXHandler;
         
         [Space(10)]
 
@@ -123,6 +124,7 @@ namespace MainProject.Scripts.Player
             LinkedAbilityHandler = this.gameObject.GetComponent<PlayerAbilityHandler>();
             LinkedHealth = this.gameObject.GetComponent<Health>();
             LinkedFXHandler = this.gameObject.GetComponent<PlayerFXHandler>();
+            LinkedSoundFXHandler = this.gameObject.GetComponent<PlayerSoundFXHandler>();
             _netAnimator = GetComponent<NetworkAnimator>();
             _playerMovement = GetComponent<PlayerMovement>();
             _areaSpikeAbility = GetComponent<AreaSpikeAttack>();

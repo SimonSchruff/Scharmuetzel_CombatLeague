@@ -165,13 +165,13 @@ namespace MainProject.Scripts.Lobby
                 {
                     case 1:
                         var displayPlayer = Instantiate(  _displayPlayerTeam01 , _displayPlayerPositionsTeam01[team01PlayersSpawned] );
-                        displayPlayer.SetPlayerObjectActiveAfterTime(player.TeamID, 1f, player.PlayerName);
+                        displayPlayer.SetPlayerObjectActiveAfterTime(player.TeamID, 0f, player.PlayerName);
                         _displayPlayersGO.Add(displayPlayer.gameObject);
                         team01PlayersSpawned++;
                         break;
                     case 2:
                         var displayPlayer02 = Instantiate(  _displayPlayerTeam02 , _displayPlayerPositionsTeam02[team02PlayersSpawned] );
-                        displayPlayer02.SetPlayerObjectActiveAfterTime(player.TeamID, 1f, player.PlayerName);
+                        displayPlayer02.SetPlayerObjectActiveAfterTime(player.TeamID, 0f, player.PlayerName);
                         _displayPlayersGO.Add(displayPlayer02.gameObject);
                         team02PlayersSpawned++;
                         break;
