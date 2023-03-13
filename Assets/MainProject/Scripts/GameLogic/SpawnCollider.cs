@@ -29,11 +29,8 @@ namespace MainProject.Scripts.GameLogic
         
         public override void OnNetworkSpawn()
         {
-            print("Coll start");
-            
             SetInactive();
 
-            // TODO: Late spawning clients
             if(net_isOpen.Value) {
                 SetActive(0);
             }
@@ -63,8 +60,6 @@ namespace MainProject.Scripts.GameLogic
     
         public void SetActive(float time)
         {
-            print("SetActive");
-            
             _startCollider.enabled = false;
 
             foreach (var mr in _planeMeshRenderer)

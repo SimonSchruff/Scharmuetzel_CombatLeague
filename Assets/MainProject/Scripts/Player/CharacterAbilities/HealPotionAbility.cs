@@ -102,6 +102,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
             if (success)
             {
                 _fxHandler.PlayHealFX();
+                _soundFXHandler.Play("HealEnd");
             }
         }
 
@@ -109,6 +110,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         {
             yield return new WaitForSeconds(_timeToEnableLightFX); 
             _fxHandler.EnableHealPotionLight();
+            _soundFXHandler.Play("HealStart");
 
         }
 

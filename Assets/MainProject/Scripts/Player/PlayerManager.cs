@@ -15,8 +15,8 @@ namespace MainProject.Scripts.Player
         [Header("Settings")] public bool IsDebugModeEnabled = true;
 
         [Header("Player Prefab")] 
-        [SerializeField]
-        private GameObject _playerPrefab;
+        [SerializeField] private GameObject _playerPrefab;
+        [SerializeField] private GameObject _spectatorPrefab;
         [Header("Player Materials")] 
         [SerializeField] public Material PlayerTeam01Material;
         [SerializeField] public Material PlayerTeam02Material;
@@ -38,13 +38,27 @@ namespace MainProject.Scripts.Player
 
         public override void OnNetworkSpawn()
         {
-            if (!IsDebugModeEnabled && IsServer)
-            {
-                var players = NetworkSaveManager.Instance.LobbyPlayerData;
+            var players = NetworkSaveManager.Instance.LobbyPlayerData;
+            var player = players[NetworkManager.Singleton.LocalClientId];
+            if (player.TeamID == 3) {
+                print("IsSpectator");
+                var obj = Instantiate(_spectatorPrefab, Vector3.zero + Vector3.up * 10f, Quaternion.identity);
+            }
+            
+            print($"PlayerManager.OnNetworkSpawn; IsLocal: {IsLocalPlayer}; IsServer: {IsServer};");
+
+            if (!IsDebugModeEnabled && IsServer) {
                 for (ulong i = 0; i < (ulong)players.Count; i++)
                 {
-                    SpawnPlayer(players[i].ID , players[i].TeamID, players[i].PlayerName);
+                    if (players[i].TeamID != 3) {
+                        SpawnPlayer(players[i].ID , players[i].TeamID, players[i].PlayerName);
+                    }
                 }
+            }
+
+            if (true)
+            {
+                
             }
         }
 

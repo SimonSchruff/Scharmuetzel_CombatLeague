@@ -45,18 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e7e44f79d0640038bfeaaea24e9162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundClips:
-  - Name: BackgroundMusic
+  BackgroundMusicSoundClips:
+  - Name: 1
     Clip: {fileID: 8300000, guid: 65f6d4b588b00465a832ba83af849870, type: 3}
-    Loop: 1
-    Volume: 0.05
-    Pitch: 1
-    Source: {fileID: 0}
-  - Name: 
-    Clip: {fileID: 0}
     Loop: 0
-    Volume: 0
-    Pitch: 0
+    Volume: 0.3
+    Pitch: 1
     Source: {fileID: 0}
   BackgroundMusicMixerGroup: {fileID: 9201922722628935477, guid: 6672fab9250a3412b9df966060d92aec,
     type: 2}

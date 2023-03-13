@@ -136,8 +136,7 @@ namespace MainProject.Scripts.Tools
                     var obj = Instantiate(SpectatorPrefab, Vector3.zero + Vector3.up * 10f, Quaternion.identity);
                 }
                 else {
-                    CanvasUtils.Instance.ShowError("Something went wrong! Try reloading the scene!");
-                    Debug.Log("Unable to join as client...");
+                    CanvasUtils.Instance.ShowError("Unable to join as client...");
                 }
             }
             

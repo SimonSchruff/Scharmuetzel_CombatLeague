@@ -96424,6 +96424,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6364543504491899364, guid: 7bd127a8a21e844bb9fbf8c92cfaa8c1,
         type: 3}
+      propertyPath: _spectatorPrefab
+      value: 
+      objectReference: {fileID: 9135883925120922654, guid: c7fb4beb54f7e4da9915a7007f330be1,
+        type: 3}
+    - target: {fileID: 6364543504491899364, guid: 7bd127a8a21e844bb9fbf8c92cfaa8c1,
+        type: 3}
       propertyPath: IsDebugModeEnabled
       value: 0
       objectReference: {fileID: 0}
@@ -96465,7 +96471,7 @@ PrefabInstance:
     - target: {fileID: 6364543504491899365, guid: 7bd127a8a21e844bb9fbf8c92cfaa8c1,
         type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3791097925
+      value: 2085938576
       objectReference: {fileID: 0}
     - target: {fileID: 6364543504491899366, guid: 7bd127a8a21e844bb9fbf8c92cfaa8c1,
         type: 3}

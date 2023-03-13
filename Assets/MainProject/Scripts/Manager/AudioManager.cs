@@ -3,6 +3,7 @@ using MainProject.Scripts.DataStructures;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace MainProject.Scripts.Manager
 {
@@ -38,12 +39,32 @@ namespace MainProject.Scripts.Manager
 
         private void Start()
         {
-            Play("BackgroundMusic");
+            PlayRandomBackgroundMusicClip();
+        }
+
+        private void Update()
+        {
+            bool isPlaying = false;
+            foreach (var s in BackgroundMusicSoundClips) {
+                if (s.Source.isPlaying) { isPlaying = true; }
+            }
+
+            if (isPlaying) {
+                return;
+            }
+            
+            PlayRandomBackgroundMusicClip();
+        }
+
+        private void PlayRandomBackgroundMusicClip()
+        {
+            SoundClip s = BackgroundMusicSoundClips[Random.Range(0, BackgroundMusicSoundClips.Length )];
+            if(s == null) { return; }
+            
+            s.Source.Play();
         }
         
-        
-
-
+        /*
         public void Play(string soundClipName)
         {
             if (!_isInitalized) { return; }
@@ -56,5 +77,6 @@ namespace MainProject.Scripts.Manager
         
             soundClip.Source.Play();
         }
+        */
     }
 }

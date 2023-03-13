@@ -487,9 +487,11 @@ MonoBehaviour:
   IsDebugModeEnabled: 1
   _playerPrefab: {fileID: 420157620333517333, guid: 0623953f883424aad8515936037dd6ca,
     type: 3}
-  _playerTeam01Material: {fileID: 2100000, guid: caf01dd5152f3934d8079e6160aa3b1e,
+  _spectatorPrefab: {fileID: 9135883925120922654, guid: c7fb4beb54f7e4da9915a7007f330be1,
+    type: 3}
+  PlayerTeam01Material: {fileID: 2100000, guid: 276370eb07bcf43b99a71b61074da986,
     type: 2}
-  _playerTeam02Material: {fileID: 2100000, guid: ba598f8b718657f4c840aa35858f65e5,
+  PlayerTeam02Material: {fileID: 2100000, guid: 8de4e6a18dd284ad68e2519f0559c86c,
     type: 2}
   Team01_SpawnPositions:
   - {fileID: 6364543504293040205}

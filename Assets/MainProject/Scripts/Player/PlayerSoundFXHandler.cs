@@ -85,7 +85,7 @@ namespace MainProject.Scripts.Player
         
         private void PlayRandomFootstepSoundClip()
         {
-            SoundClip sound = FootstepSoundClips[UnityEngine.Random.Range(0, FootstepSoundClips.Length - 1)];
+            SoundClip sound = FootstepSoundClips[UnityEngine.Random.Range(0, FootstepSoundClips.Length )];
             if (sound == null || !_isInitalized) { return; }
             
             sound.Source.Play();

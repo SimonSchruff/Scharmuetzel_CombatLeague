@@ -137,7 +137,8 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         private void NotifyAbilityStartedClientRPC()
         {
             EnableHitAreaPreview();
-            
+            _soundFXHandler.Play("GroundSpikeStart");
+
             if (IsLocalPlayer) {
                 _abilityHandler.StartCooldown(AbilityTypes.GroundSpikes);
                 PlayerHUDManager.Instance.TriggerAbilityCooldown(AbilityTypes.GroundSpikes);
