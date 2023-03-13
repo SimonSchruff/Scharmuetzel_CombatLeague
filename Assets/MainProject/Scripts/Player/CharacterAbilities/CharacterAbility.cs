@@ -1,3 +1,4 @@
+using System.Collections;
 using MainProject.Scripts.DataStructures;
 using MainProject.Scripts.DataStructures.PlayerData;
 using MainProject.Scripts.Tools;
@@ -77,6 +78,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         protected PlayerInputHandler _inputHandler;
         protected PlayerAbilityHandler _abilityHandler;
         protected PlayerFXHandler _fxHandler;
+        protected PlayerSoundFXHandler _soundFXHandler;
         protected Animator _animator = null;
         protected NetworkAnimator _netAnimator = null;
         
@@ -149,6 +151,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
 	         // Abilities
 	         _abilityHandler = this.gameObject.GetComponent<PlayerAbilityHandler>(); 
 	         _fxHandler = this.gameObject.GetComponent<PlayerFXHandler>(); 
+	         _soundFXHandler = this.gameObject.GetComponent<PlayerSoundFXHandler>(); 
 	         _playerMovement = this.gameObject.GetComponent<PlayerMovement>(); 
 	         
 	         // Player state and state machines
@@ -314,6 +317,17 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         protected virtual void OnHit()
         {
 
+        }
+        
+        protected virtual IEnumerator PlaySoundAfterTime(string name, float time)
+        {
+	        if (_soundFXHandler == null) {
+		        Debug.LogWarning("Could not find sound FX handler");
+		        yield break;
+	        }
+	        
+	        yield return new WaitForSeconds(time);
+	        _soundFXHandler.Play(name);
         }
 
     }

@@ -494,6 +494,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e940707400c044b35b29e277b99b5040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundClips:
+  - Name: Spawn
+    Clip: {fileID: 8300000, guid: d06fe0a28626b49adab84566e385e55c, type: 3}
+    Loop: 0
+    Volume: 0.4
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: BasicAttack
+    Clip: {fileID: 8300000, guid: 52d78d0a5d6ab4c7bb5eb1959222ed19, type: 3}
+    Loop: 0
+    Volume: 0.3
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: DragonPunch
+    Clip: {fileID: 8300000, guid: 4d1cf98b68e6441ba8b1237834500f7a, type: 3}
+    Loop: 0
+    Volume: 0.3
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: BasicRanged
+    Clip: {fileID: 8300000, guid: 13e9147b3232a489ba2278dc0f732712, type: 3}
+    Loop: 0
+    Volume: 0.3
+    Pitch: 1
+    Source: {fileID: 0}
+  - Name: SpinAttack
+    Clip: {fileID: 8300000, guid: d9df5b8eb78f94952a9c5758f1ce275c, type: 3}
+    Loop: 0
+    Volume: 0.3
+    Pitch: 1
+    Source: {fileID: 0}
 --- !u!114 &6863906374323071287
 MonoBehaviour:
   m_ObjectHideFlags: 0

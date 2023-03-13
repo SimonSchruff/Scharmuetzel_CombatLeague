@@ -90,6 +90,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         {
             EnableHitAreaPreview();
             _fxHandler.EnableWeaponTrailFX();
+            _soundFXHandler.Play("SpinAttack");
 
             if (IsLocalPlayer) {
                 _abilityHandler.StartCooldown(AbilityTypes.SpinAttack);

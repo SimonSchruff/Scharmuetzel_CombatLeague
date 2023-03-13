@@ -243,6 +243,7 @@ namespace MainProject.Scripts.Player
             
             this.CharacterModel.SetActive(true);
             this.LinkedFXHandler.PlaySpawnFX(Net_TeamID.Value);
+            this.LinkedSoundFXHandler.Play("Spawn");
         }
 
         

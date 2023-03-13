@@ -132,6 +132,8 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         private void NotifyAbilityStartedClientRPC()
         {
             EnableHitAreaPreview();
+
+            StartCoroutine(PlaySoundAfterTime("DragonPunch", _timeToCast));
             
             if (IsLocalPlayer) {
                 _abilityHandler.StartCooldown(AbilityTypes.DragonPunch);

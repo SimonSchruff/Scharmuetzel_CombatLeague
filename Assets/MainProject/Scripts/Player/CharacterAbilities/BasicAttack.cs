@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using MainProject.Scripts.DataStructures;
 using MainProject.Scripts.DataStructures.PlayerData;
 using MainProject.Scripts.Player.PlayerUI;
@@ -172,6 +173,7 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         private void NotifyAbilityStartedClientRPC()
         {
             _fxHandler.EnableWeaponTrailForTime(AttackTime);
+            StartCoroutine(PlaySoundAfterTime("BasicAttack", 0.2f));
             
             if (IsLocalPlayer)
             {
@@ -179,7 +181,6 @@ namespace MainProject.Scripts.Player.CharacterAbilities
                 PlayerHUDManager.Instance.TriggerAbilityCooldown(AbilityTypes.BasicAttack);
             }
         }
-        
         
         protected override void InitializeAnimatorParameters()
         {
