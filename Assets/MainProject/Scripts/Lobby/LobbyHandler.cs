@@ -146,7 +146,6 @@ namespace MainProject.Scripts.Lobby
             var id = NetworkManager.Singleton.LocalClientId;
             var playerName = Constants.PlayerName;
             
-            
             if (IsServer) {
                 NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectedCallback;
                 

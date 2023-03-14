@@ -37,7 +37,6 @@ namespace MainProject.Scripts.GameLogic
         private const int points_per_tick = 1;
 
         [Header("Visual References")]
-        [SerializeField] private Image _circleImg;
         [SerializeField] private Slider _pointSlider;
         [SerializeField] private Image _fillImg;
         [SerializeField] private GameObject _fireYellow; 
@@ -51,8 +50,13 @@ namespace MainProject.Scripts.GameLogic
         [SerializeField] private Color _team02OwnedColor;
         [SerializeField] private Color _team02ChargingColor;
         [SerializeField] private Color _neutralColor;
+
+        private AudioSource _audioSource;
         
-        // Events
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
 
         public override void OnNetworkSpawn()
         {
@@ -421,6 +425,7 @@ namespace MainProject.Scripts.GameLogic
                     _fireYellow.SetActive(false);
                     _fireBlue.SetActive(false);
                     _fireRed.SetActive(true);
+                    _audioSource.Play();
                     break;
                 case FlagState.Team01Charging:
                 case FlagState.Team01Decharging:
@@ -444,6 +449,7 @@ namespace MainProject.Scripts.GameLogic
                     _fireYellow.SetActive(false);
                     _fireBlue.SetActive(true);
                     _fireRed.SetActive(false);
+                    _audioSource.Play();
                     break;
             }
 
