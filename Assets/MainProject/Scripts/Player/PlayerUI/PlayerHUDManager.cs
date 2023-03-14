@@ -47,9 +47,6 @@ namespace MainProject.Scripts.Player.PlayerUI
             Character.OnCharacterDespawned += OnPlayerDespawnCallback;
             
             MatchmakingService.OnLobbyCreated += OnSetLobbyCodeUI;
-
-            
-
         }
         
         private void OnDisable()
@@ -253,7 +250,8 @@ namespace MainProject.Scripts.Player.PlayerUI
             _respawnTime = 0f;
             _playerCanvas.DisableRespawnTimerText();
             _playerCanvas.SetAbilityImagesByValue(1f);
-
+            
+            _playerCanvas.ResetHealthSlider();
             
             _localPlayerCharacter.LinkedCameraHandler.SetBW(false);
         }

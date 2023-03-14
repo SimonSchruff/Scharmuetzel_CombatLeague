@@ -90,11 +90,19 @@ namespace MainProject.Scripts.Player.CharacterAbilities
                 return false;
             }
         }
+        
+        public void DisableAimAbility()
+        {
+            if (!IsLocalPlayer) { return; }
+            
+            DisableHitAreaPreview();
+        }
 
         protected virtual void CastStart()
         {
             if (!Cooldown.Ready() || !IsServer) { return; }
             
+            Cooldown.Start();
             _movementStateMachine.ChangeState(CharacterStates.CharacterMovementStates.Casting);
             _netAnimator.SetTrigger(_castAnimationParameter);
             _isCasting = true;

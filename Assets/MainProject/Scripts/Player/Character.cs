@@ -166,18 +166,7 @@ namespace MainProject.Scripts.Player
         {
             yield return new WaitForSeconds(1f);
             
-            var playerModelMeshRenderer = this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
-            var weapon = this.GetComponentInChildren<PlayerWeapon>();
-            
-            if (this.Net_TeamID.Value == 1) {
-                playerModelMeshRenderer.material = PlayerManager.Instance.PlayerTeam01Material;
-                weapon.SetMaterial(PlayerManager.Instance.PlayerTeam01Material);
-            }
-
-            if (this.Net_TeamID.Value == 2) {
-                playerModelMeshRenderer.material = PlayerManager.Instance.PlayerTeam02Material;
-                weapon.SetMaterial(PlayerManager.Instance.PlayerTeam02Material);
-            }
+            SetUpMaterials();
             
             this.CharacterModel.SetActive(false);
 
@@ -195,6 +184,22 @@ namespace MainProject.Scripts.Player
 
             if (IsServer) {
                 InitializeServer();
+            }
+        }
+
+        private void SetUpMaterials()
+        {
+            var playerModelMeshRenderer = this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+            var weapon = this.GetComponentInChildren<PlayerWeapon>();
+            
+            if (this.Net_TeamID.Value == 1) {
+                playerModelMeshRenderer.material = PlayerManager.Instance.PlayerTeam01Material;
+                weapon.SetMaterial(PlayerManager.Instance.PlayerTeam01Material);
+            }
+
+            if (this.Net_TeamID.Value == 2) {
+                playerModelMeshRenderer.material = PlayerManager.Instance.PlayerTeam02Material;
+                weapon.SetMaterial(PlayerManager.Instance.PlayerTeam02Material);
             }
         }
 
@@ -1135,8 +1140,8 @@ namespace MainProject.Scripts.Player
         protected virtual void OnDeath(float respawnTime)
         {
             Disable();
+            
             LinkedFXHandler.PlaySpawnFX(Net_TeamID.Value);
-            LinkedSoundFXHandler.Play("Death");
             LinkedSoundFXHandler.Play("Spawn");
             
             if (IsLocalPlayer) {
@@ -1148,13 +1153,13 @@ namespace MainProject.Scripts.Player
         {
             LinkedPlayerController.enabled = true;
             LinkedCharacterController.enabled = true;
-            
+
             ResetAbilities();
+            SetUpMaterials();
             
             if (IsLocalPlayer) {
                 LinkedInputHandler.enabled = true;
                 LinkedInputHandler.RumbleController(0.4f, 0.5f);
-
             }
         }
         

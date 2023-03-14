@@ -72,6 +72,12 @@ namespace MainProject.Scripts.Player.CharacterAbilities
                 return false;
             }
         }
+        public void DisableAimAbility()
+        {
+            if (!IsLocalPlayer) { return; }
+            
+            DisableHitAreaPreview();
+        }
         
         protected virtual void CastStart()
         {

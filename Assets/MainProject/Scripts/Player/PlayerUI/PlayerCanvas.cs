@@ -22,6 +22,7 @@ namespace MainProject.Scripts.Player.PlayerUI
         [Header("Ability Images")]
         public Image _cast01Img; 
         public Image _cast02Img, _cast03Img, _cast04Img, _dashImg, _healImg, _basicAttackImg;
+        public Material _spriteFlashMat;
 
         private float _ability01Cooldown, _ability02Cooldown, _ability03Cooldown, 
             _ability04Cooldown, _dashCooldown, _healCooldown, _basicAttackCooldown;
@@ -45,13 +46,7 @@ namespace MainProject.Scripts.Player.PlayerUI
         public Slider HealthBackgroundSlider;
         public Slider Team01PointsSlider;
         public Slider Team02PointsSlider;
-        
-        [Header("Debug Graph Settings")]
-        [SerializeField] private RawImage _overlayBgImg;
-        [SerializeField] private float _widthSeconds, _heightMeters;
-        private int _widthPixels, _heightPixels;
-        private Texture2D _tex;
-        
+
         [Header("Menu HUD")]
         [SerializeField] private TextMeshProUGUI _lobbyNameText;
         [SerializeField] private TextMeshProUGUI _lobbyCodeText;
@@ -213,6 +208,18 @@ namespace MainProject.Scripts.Player.PlayerUI
             
             // Cooldown finished
             abilityImg.fillAmount = 1f;
+            StartCoroutine(FlashAbilitySpriteWhenReady(abilityImg));
+        }
+
+        private IEnumerator FlashAbilitySpriteWhenReady(Image abilityImg)
+        {
+            if(_spriteFlashMat == null) {
+                yield break;
+            }
+            
+            abilityImg.material = _spriteFlashMat;
+            yield return new WaitForSeconds(0.2f);
+            abilityImg.material = null;
         }
 
         /// <summary>
@@ -276,6 +283,12 @@ namespace MainProject.Scripts.Player.PlayerUI
                 await Task.Delay(1000);
                 HealthSlider.DOValue(value, 1f);
             }
+        }
+
+        public void ResetHealthSlider()
+        {
+            HealthSlider.value = 1f;
+            HealthBackgroundSlider.value = 1f;
         }
 
         public void SetHealthBarText(float currentHealth, float maxHealth = 1000)

@@ -87,6 +87,13 @@ namespace MainProject.Scripts.Player.CharacterAbilities
                 return false;
             }
         }
+        
+        public void DisableAimAbility()
+        {
+            if (!IsLocalPlayer) { return; }
+            
+            DisableHitAreaPreview();
+        }
 
         private async void CastStop()
         {
@@ -143,8 +150,8 @@ namespace MainProject.Scripts.Player.CharacterAbilities
         
         private void Update()
         {
-           
-            Cooldown.UpdateCooldown(IsHost);
+           // TODO: Cooldown.UpdateCooldown(IsHost) before; Was that a mistake or intended?
+            Cooldown.UpdateCooldown(IsLocalPlayer);
         }
         
         public override void ProcessAbility()

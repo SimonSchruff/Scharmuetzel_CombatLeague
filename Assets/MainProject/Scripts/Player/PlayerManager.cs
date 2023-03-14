@@ -38,27 +38,27 @@ namespace MainProject.Scripts.Player
 
         public override void OnNetworkSpawn()
         {
+            if (IsDebugModeEnabled) {
+                return;
+            }
+            
             var players = NetworkSaveManager.Instance.LobbyPlayerData;
             var player = players[NetworkManager.Singleton.LocalClientId];
+            
+            // Spawn as spectator local only
             if (player.TeamID == 3) {
                 print("IsSpectator");
                 var obj = Instantiate(_spectatorPrefab, Vector3.zero + Vector3.up * 10f, Quaternion.identity);
             }
             
-            print($"PlayerManager.OnNetworkSpawn; IsLocal: {IsLocalPlayer}; IsServer: {IsServer};");
-
-            if (!IsDebugModeEnabled && IsServer) {
+            // Spawn player objects as server
+            if ( IsServer) {
                 for (ulong i = 0; i < (ulong)players.Count; i++)
                 {
                     if (players[i].TeamID != 3) {
                         SpawnPlayer(players[i].ID , players[i].TeamID, players[i].PlayerName);
                     }
                 }
-            }
-
-            if (true)
-            {
-                
             }
         }
 

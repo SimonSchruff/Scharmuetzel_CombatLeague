@@ -102,7 +102,12 @@ namespace MainProject.Scripts.Player.CharacterAbilities
                 return;
             }
             
-            // Check if we aim ability and return if yes, to avoid two aim displays at the same time
+            // Reset all aims
+            _spikeAttack.DisableAimAbility();
+            _dragonPunch.DisableAimAbility();   
+            _spinAttack.DisableAimAbility();
+            _basicRanged.DisableAimAbility();
+
             if (_dragonPunch.AimAbility(inputs)) {
                 return;
             }
