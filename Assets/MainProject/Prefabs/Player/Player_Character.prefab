@@ -747,7 +747,7 @@ MonoBehaviour:
   _inputCacheThresholdMin: 0.3
   _inputCacheThresholdMax: 0.6
   Damage:
-    DamageCaused: 150
+    DamageCaused: 100
     ForceCharacterCondition: 0
     Condition: 0
     ConditionDuration: 0
@@ -826,7 +826,7 @@ MonoBehaviour:
     m_Bits: 6144
   AimDisplaySprite: {fileID: 149807926435075106}
   Damage:
-    DamageCaused: 200
+    DamageCaused: 100
     ForceCharacterCondition: 0
     Condition: 0
     ConditionDuration: 0
@@ -864,7 +864,7 @@ MonoBehaviour:
     m_Bits: 6144
   AimDisplaySprite: {fileID: 7039664557218406097}
   Damage:
-    DamageCaused: 300
+    DamageCaused: 200
     ForceCharacterCondition: 1
     Condition: 5
     ConditionDuration: 3
@@ -902,7 +902,7 @@ MonoBehaviour:
     m_Bits: 6144
   AimDisplaySprite: {fileID: 62446596313873953}
   Damage:
-    DamageCaused: 500
+    DamageCaused: 400
     ForceCharacterCondition: 0
     Condition: 0
     ConditionDuration: 0
