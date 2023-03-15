@@ -570,12 +570,6 @@ MonoBehaviour:
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
-    - Override: 0
-      Prefab: {fileID: 9135883925120922654, guid: c7fb4beb54f7e4da9915a7007f330be1,
-        type: 3}
-      SourcePrefabToOverride: {fileID: 0}
-      SourceHashToOverride: 0
-      OverridingTargetPrefab: {fileID: 0}
     TickRate: 50
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -1331,6 +1325,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.data[1].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 899484f9db9114b9386c1c7798597684, type: 3}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.data[1].Name
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.data[2].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: db041e1a1dd6f4750a20166b4cf02d4c, type: 3}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.data[2].Name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.data[1].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.data[2].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.data[1].Volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712429682757304281, guid: 368b97df26d52444984734bd0549eb21,
+        type: 3}
+      propertyPath: BackgroundMusicSoundClips.Array.data[2].Volume
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4336254396568903428, guid: 368b97df26d52444984734bd0549eb21,
         type: 3}
