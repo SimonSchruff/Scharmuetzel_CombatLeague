@@ -226,9 +226,6 @@ namespace MainProject.Scripts.Player
             _playerInput.CharacterControls.Cast04.canceled += OnCast04;
             
             _playerInput.CharacterControls.NetStatsMonitor.performed += OnNetStats;
-            
-            _playerInput.CharacterControls.StartMenu.performed += OnStartMenu;
-
 
         }
 
@@ -271,8 +268,6 @@ namespace MainProject.Scripts.Player
             _playerInput.CharacterControls.Cast04.started -= OnCast04;
             _playerInput.CharacterControls.Cast04.performed -= OnCast04;
             _playerInput.CharacterControls.Cast04.canceled -= OnCast04;
-            
-            _playerInput.CharacterControls.StartMenu.performed -= OnStartMenu;
         }
 
     }

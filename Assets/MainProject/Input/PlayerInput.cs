@@ -125,15 +125,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""StartMenu"",
-                    ""type"": ""Button"",
-                    ""id"": ""d54eb863-388f-49f0-a62b-70b2c6da78c0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -466,28 +457,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""RightStick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3ab1d97d-ad18-4eac-8979-61d71fc50ea0"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""StartMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cc730fe1-726b-42dc-92eb-526d14eab321"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""StartMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -769,7 +738,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_CharacterControls_Cast03 = m_CharacterControls.FindAction("Cast03", throwIfNotFound: true);
         m_CharacterControls_Cast04 = m_CharacterControls.FindAction("Cast04", throwIfNotFound: true);
         m_CharacterControls_Heal = m_CharacterControls.FindAction("Heal", throwIfNotFound: true);
-        m_CharacterControls_StartMenu = m_CharacterControls.FindAction("StartMenu", throwIfNotFound: true);
         // CameraController
         m_CameraController = asset.FindActionMap("CameraController", throwIfNotFound: true);
         m_CameraController_Move = m_CameraController.FindAction("Move", throwIfNotFound: true);
@@ -847,7 +815,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterControls_Cast03;
     private readonly InputAction m_CharacterControls_Cast04;
     private readonly InputAction m_CharacterControls_Heal;
-    private readonly InputAction m_CharacterControls_StartMenu;
     public struct CharacterControlsActions
     {
         private @PlayerInput m_Wrapper;
@@ -863,7 +830,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Cast03 => m_Wrapper.m_CharacterControls_Cast03;
         public InputAction @Cast04 => m_Wrapper.m_CharacterControls_Cast04;
         public InputAction @Heal => m_Wrapper.m_CharacterControls_Heal;
-        public InputAction @StartMenu => m_Wrapper.m_CharacterControls_StartMenu;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -906,9 +872,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Heal.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnHeal;
                 @Heal.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnHeal;
                 @Heal.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnHeal;
-                @StartMenu.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStartMenu;
-                @StartMenu.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStartMenu;
-                @StartMenu.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStartMenu;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -946,9 +909,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Heal.started += instance.OnHeal;
                 @Heal.performed += instance.OnHeal;
                 @Heal.canceled += instance.OnHeal;
-                @StartMenu.started += instance.OnStartMenu;
-                @StartMenu.performed += instance.OnStartMenu;
-                @StartMenu.canceled += instance.OnStartMenu;
             }
         }
     }
@@ -1049,7 +1009,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnCast03(InputAction.CallbackContext context);
         void OnCast04(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
-        void OnStartMenu(InputAction.CallbackContext context);
     }
     public interface ICameraControllerActions
     {

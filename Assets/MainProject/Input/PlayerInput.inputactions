@@ -103,15 +103,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "StartMenu",
-                    "type": "Button",
-                    "id": "d54eb863-388f-49f0-a62b-70b2c6da78c0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -444,28 +435,6 @@
                     "action": "RightStick",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "3ab1d97d-ad18-4eac-8979-61d71fc50ea0",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "StartMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cc730fe1-726b-42dc-92eb-526d14eab321",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "StartMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
