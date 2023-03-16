@@ -40,8 +40,7 @@ namespace MainProject.Scripts.Lobby
             RoomScreen.PlayerSwitchTeam += OnClientSwitchedTeam;
             SearchLobbyScreen.OnLobbyJoinWithCode += OnLobbyJoinWithCode;
         
-            NetworkObject.DestroyWithScene = true;
-            
+            // NetworkObject.DestroyWithScene = true;
         }
 
         #region Main Lobby
@@ -386,8 +385,7 @@ namespace MainProject.Scripts.Lobby
             RoomScreen.LobbyLeft -= OnLobbyLeft;
             RoomScreen.StartPressed -= OnGameStart;
             SearchLobbyScreen.OnLobbyJoinWithCode -= OnLobbyJoinWithCode;
-
-        
+            
             // We only care about this during lobby
             if (NetworkManager.Singleton != null) {
                 NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnectCallback;

@@ -4,9 +4,12 @@ using DG.Tweening;
 using MainProject.Scripts.DataStructures;
 using MainProject.Scripts.DataStructures.PlayerData;
 using MainProject.Scripts.Manager;
+using MainProject.Scripts.Tools;
+using MainProject.Scripts.Tools.Services;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Task = System.Threading.Tasks.Task;
 
@@ -108,6 +111,28 @@ namespace MainProject.Scripts.Player.PlayerUI
         {
             Debug.LogWarning("Application was quit!");
             Application.Quit();
+        }
+
+        public void OnBackToMenu()
+        {
+            OnLobbyLeft();
+        }
+        
+        private async void OnLobbyLeft() {
+            using (new Load("Leaving Lobby...")) {
+                
+                if (NetworkSaveManager.Instance != null) {
+                    NetworkSaveManager.Instance.ClearPlayerData();
+                }
+                
+                NetworkManager.Singleton.Shutdown();
+                await MatchmakingService.LeaveLobby();
+                
+                Authentication.Logout();
+
+                SceneManager.LoadScene("AuthReload", LoadSceneMode.Single);
+            }
+            
         }
 
         public void EnableGameOverHud(int teamId)

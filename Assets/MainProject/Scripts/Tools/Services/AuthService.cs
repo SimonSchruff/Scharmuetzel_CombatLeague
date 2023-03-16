@@ -29,13 +29,12 @@ namespace MainProject.Scripts.Tools.Services
 #endif
 
 #if DEVELOPMENT_BUILD
+                // For local build testing we need to also set profile
+                // https://docs-multiplayer.unity3d.com/netcode/current/tutorials/testing/testing_locally/index.html
                 var time = DateTime.Now;
                 options.SetProfile($"Client_{time}_Profile");
 #endif
                 
-                // TODO: For local build testing we need to also set profile
-                // https://docs-multiplayer.unity3d.com/netcode/current/tutorials/testing/testing_locally/index.html
-                    
                 await UnityServices.InitializeAsync(options);
             }
 
@@ -47,6 +46,13 @@ namespace MainProject.Scripts.Tools.Services
             }
         }
 
+        public static void Logout() {
+            if (AuthenticationService.Instance.IsSignedIn && UnityServices.State != ServicesInitializationState.Uninitialized) {
+                AuthenticationService.Instance.SignOut(true);
+                Debug.Log("User logged out");
+            }
+        }
+        
         
         /// <summary>
         /// Return whether or not the user is signed in with authentication service

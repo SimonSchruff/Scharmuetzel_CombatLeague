@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/MainProject/Scenes/Auth.unity
     guid: 52d8f67aef17346acbaea7bcb8cf1a32
   - enabled: 1
+    path: Assets/MainProject/Scenes/AuthReload.unity
+    guid: 98e42706a03ac4640859fbe3f7de21da
+  - enabled: 1
     path: Assets/MainProject/Scenes/Lobby.unity
     guid: b49866558e8df4eff82ddd2aeb3f8963
   - enabled: 0

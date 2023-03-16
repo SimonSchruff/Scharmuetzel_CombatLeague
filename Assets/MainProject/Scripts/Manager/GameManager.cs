@@ -44,15 +44,17 @@ namespace MainProject.Scripts.Manager
             tick_rate = NetworkManager.NetworkTickSystem.TickRate;
             points_per_tick = PointsPerSecond / tick_rate;
 
-            NetworkManager.NetworkTickSystem.Tick += TickGame;
+            NetworkManager.Singleton.NetworkTickSystem.Tick += TickGame;
             
             if (!IsServer) { SyncGameTimeServerRpc();}
             //if (IsServer) { SyncGameTimeClientRpc(game_time);}
         }
 
-        public override void OnNetworkDespawn()
+        public override void OnDestroy()
         {
-            NetworkManager.NetworkTickSystem.Tick -= TickGame;
+            if (NetworkManager.Singleton != null && NetworkManager.Singleton.NetworkTickSystem != null) {
+                NetworkManager.Singleton.NetworkTickSystem.Tick -= TickGame;
+            }
         }
 
         private void TickGame()

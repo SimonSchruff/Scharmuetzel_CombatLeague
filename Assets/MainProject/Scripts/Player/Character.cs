@@ -1115,6 +1115,8 @@ namespace MainProject.Scripts.Player
         protected virtual void OnGameOver(int teamId)
         {
             Disable();
+            
+            this.enabled = false;
         }
 
         /// <summary>

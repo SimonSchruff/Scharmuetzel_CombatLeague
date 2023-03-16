@@ -96266,7 +96266,7 @@ PrefabInstance:
     - target: {fileID: 4874240174247163870, guid: 3ea80d51bcb1045bfacda08f16c72b89,
         type: 3}
       propertyPath: PointsToWin
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4874240174247163870, guid: 3ea80d51bcb1045bfacda08f16c72b89,
         type: 3}

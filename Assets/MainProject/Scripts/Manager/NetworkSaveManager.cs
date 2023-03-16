@@ -12,7 +12,7 @@ namespace MainProject.Scripts.Manager
 
         public override void OnNetworkSpawn()
         {
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
 
 
@@ -33,6 +33,12 @@ namespace MainProject.Scripts.Manager
             for(int i = 0; i < data.Length; i++) {
                 LobbyPlayerData.Add(data[i].ID, data[i]);
             }
+        }
+
+        public void ClearPlayerData()
+        {
+            if (LobbyPlayerData == null || LobbyPlayerData.Count == 0) { return; }
+            LobbyPlayerData.Clear();
         }
     }
 }
