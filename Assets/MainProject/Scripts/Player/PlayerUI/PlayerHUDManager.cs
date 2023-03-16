@@ -16,10 +16,16 @@ namespace MainProject.Scripts.Player.PlayerUI
         [Header("References")]
         [SerializeField] private PlayerCanvas _playerCanvas;
         [SerializeField] private HealthBar _healthBarPrefab;
-
+        
+        [Header("MiniMap")]
+        [SerializeField] private Transform _mapPoint_1;
+        [SerializeField] private Transform _mapPoint_2;
+        
+        
         private NetStatsMonitorCustomization _netStatsMonitorHandler;
         private Character _localPlayerCharacter;
         private Health _health;
+        private MiniMap _miniMap;
         
         private Dictionary<Character, HealthBar> _healthBarDictionary = new Dictionary<Character, HealthBar>();
 
@@ -42,7 +48,14 @@ namespace MainProject.Scripts.Player.PlayerUI
             else {
                 Destroy(this);
             }
+
+            _miniMap = _playerCanvas.GetComponentInChildren<MiniMap>();
             
+            if (_miniMap != null)
+            {
+                _miniMap.CalculateMapRatio(_mapPoint_1, _mapPoint_2);
+            }
+
             Character.OnCharacterSpawned += OnPlayerSpawnCallback;
             Character.OnCharacterDespawned += OnPlayerDespawnCallback;
             
@@ -83,6 +96,8 @@ namespace MainProject.Scripts.Player.PlayerUI
             {
                 _localPlayerCharacter = character;
             }
+            
+            _miniMap.UpdatePlayers(_healthBarDictionary);
         }
 
         /// <summary>
@@ -118,6 +133,8 @@ namespace MainProject.Scripts.Player.PlayerUI
                 
                 _healthBarDictionary.Remove(character);
             }
+            
+            _miniMap.UpdatePlayers(_healthBarDictionary);
         }
 
         
@@ -180,6 +197,8 @@ namespace MainProject.Scripts.Player.PlayerUI
                 _playerCanvas.SetRespawnTimerText(_respawnTime);
                 _respawnTime -= Time.deltaTime;
             }
+            
+            _miniMap.UpdatePlayerPos();
         }
 
         public void SetCooldownTimeForAbility(AbilityTypes ability, float time)
