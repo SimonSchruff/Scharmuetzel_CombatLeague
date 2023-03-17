@@ -43,7 +43,10 @@ namespace MainProject.Scripts.Player.PlayerUI
         public Image Flag01Img;
         public Image Flag02Img;
         public Image Flag03Img;
-
+        [SerializeField] private Color _team01Color;
+        [SerializeField] private Color _team02Color;
+        
+        
         [Header("Slider")]
         public Slider HealthSlider;
         public Slider HealthBackgroundSlider;
@@ -364,18 +367,18 @@ namespace MainProject.Scripts.Player.PlayerUI
                     img.color = Color.white;
                     break;
                 case FlagState.Team01Owned:
-                    img.color = Color.red;
+                    img.color = _team01Color;
                     break;
                 case FlagState.Team01Charging:
                 case FlagState.Team01Decharging:
-                    img.color = Color.Lerp(Color.red, Color.white, 0.5f);
+                    img.color = Color.Lerp(_team01Color, Color.white, 0.5f);
                     break;
                 case FlagState.Team02Owned:
-                    img.color = Color.blue;
+                    img.color = _team02Color;
                     break;
                 case FlagState.Team02Charging:
                 case FlagState.Team02Decharging:
-                    img.color = Color.Lerp(Color.blue, Color.white, 0.5f);
+                    img.color = Color.Lerp(_team02Color, Color.white, 0.5f);
                     break;
                 
             }
