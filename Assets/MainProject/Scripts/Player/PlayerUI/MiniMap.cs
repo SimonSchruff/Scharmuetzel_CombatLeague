@@ -61,6 +61,8 @@ namespace MainProject.Scripts.Player.PlayerUI
         {
             if(_mapPlayers.Count == 0 || _mapPlayers == null) { return; }
             
+            if(_mapPoint_1 == null || _worldPoint_1 == null) { return; }
+            
             foreach (var p in _mapPlayers)
             {
                 p.Value.anchoredPosition =  _mapPoint_1.anchoredPosition + new Vector2((p.Key.transform.position.x - _worldPoint_1.position.x) * _minimapRatio, 

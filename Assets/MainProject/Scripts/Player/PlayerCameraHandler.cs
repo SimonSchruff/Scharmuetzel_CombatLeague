@@ -3,6 +3,7 @@ using MainProject.Scripts.Tools;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -14,7 +15,10 @@ namespace MainProject.Scripts.Player
         public CinemachineVirtualCamera FollowCamera;
         [Tooltip("An object to use as the camera's point of focus and follow target")]
         public GameObject CameraTarget;
-        
+
+        [Header("Events")] 
+        public UnityEvent OnCameraShake;
+
         private Volume _ppVolume;
         private ColorAdjustments _colorAdjustments;
 
@@ -42,6 +46,11 @@ namespace MainProject.Scripts.Player
                 print("Could not get ColorAdjustments");
             }
             
+        }
+        
+        public void ShakeCamera()
+        {
+            OnCameraShake?.Invoke();
         }
 
         public void SetUpFollowPlayerCamera()

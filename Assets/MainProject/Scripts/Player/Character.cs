@@ -1148,6 +1148,7 @@ namespace MainProject.Scripts.Player
             
             if (IsLocalPlayer) {
                 LinkedInputHandler.RumbleController(2f, 0.75f);
+                LinkedCameraHandler.ShakeCamera();
             }
         }
         
@@ -1171,6 +1172,7 @@ namespace MainProject.Scripts.Player
             
             if (IsLocalPlayer) {
                 LinkedInputHandler.RumbleController(0.5f, 0.75f);
+                LinkedCameraHandler.ShakeCamera();
             }
         }
     }

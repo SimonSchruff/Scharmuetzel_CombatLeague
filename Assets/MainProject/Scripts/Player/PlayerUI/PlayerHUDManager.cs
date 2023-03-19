@@ -51,7 +51,7 @@ namespace MainProject.Scripts.Player.PlayerUI
 
             _miniMap = _playerCanvas.GetComponentInChildren<MiniMap>();
             
-            if (_miniMap != null)
+            if (_miniMap != null && _mapPoint_1 != null && _mapPoint_2 != null)
             {
                 _miniMap.CalculateMapRatio(_mapPoint_1, _mapPoint_2);
             }
@@ -197,8 +197,10 @@ namespace MainProject.Scripts.Player.PlayerUI
                 _playerCanvas.SetRespawnTimerText(_respawnTime);
                 _respawnTime -= Time.deltaTime;
             }
-            
-            _miniMap.UpdatePlayerPos();
+
+            if (_miniMap != null) {
+                _miniMap.UpdatePlayerPos();
+            }
         }
 
         public void SetCooldownTimeForAbility(AbilityTypes ability, float time)
